@@ -1,19 +1,26 @@
+*:focus {
+    outline: none;
+}
+
 body {
     margin: 0;
     padding: 0;
 }
 
+.top {
+    display: flex;
+    margin: 10px;
+    justify-content: space-around;
+}
+
 #container {
-    width: 900px;
-    height: 900px;
+    margin: 10px auto;
+    width: 800px;
+    height: 800px;
     display: grid;
+    border: 1px solid black;
 }
 
-.grid-item {
-    width: 100px;
-    height: 100px;
-}
-
-.grid-item:hover {
-    background-color: blue;
+.active {
+    background-color: black;
 }
