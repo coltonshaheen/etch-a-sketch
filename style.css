@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    width: 900px;
+    height: 900px;
+    display: grid;
+}
+
+.grid-item {
+    width: 100px;
+    height: 100px;
+}
+
+.grid-item:hover {
+    background-color: blue;
+}
