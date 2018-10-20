@@ -2,27 +2,37 @@ const GRIDSIZE = 800;
 
 let grid = document.getElementById('container');
 let colInput = document.getElementById('col-input');
-colInput.addEventListener('input', calculateSize, false);
+colInput.addEventListener('input', function () {
+    calculateSize();
+    resetGrid();
+}, false);
+
+const resetButton = document.getElementById('reset-button');
+resetButton.addEventListener('click', resetGrid, false);
 
 window.onload = calculateSize(8);
 
 function calculateSize() {
     let boxes = colInput.value;
+    if (boxes > 100) {
+        boxes = 100;
+    }
     boxes *= boxes;
     makeGrid(boxes);
 }
 
 function resetGrid() {
-    let resetDivs = document.getElementsByClassName('.grid-item');
-    resetDivs.classList.remove('active');
+    let resetDivs = document.querySelectorAll(".active");
+
+    for (let i = 0; i < resetDivs.length; i++) {
+        resetDivs[i].classList.remove("active");
+    }
 }
 
 function makeGrid(numberOfBoxes) {
     let boxCounter = 0;
     let boxDimension = Math.sqrt(numberOfBoxes);
-    console.log("boxDimension=" + boxDimension);
     let gridItemSize = GRIDSIZE / boxDimension;
-    console.log("gridItemSize= " + gridItemSize);
     grid.style.gridTemplateRows = "repeat(" + boxDimension + ", " + gridItemSize + "px)";
     grid.style.gridTemplateColumns = "repeat(" + boxDimension + ", " + gridItemSize + "px)";
 
@@ -32,9 +42,7 @@ function makeGrid(numberOfBoxes) {
         gridItem.classList.add('grid-item');
 
         gridItem.style.width = gridItemSize;
-        console.log("gridItem.style.width= " + gridItemSize);
         gridItem.style.height = gridItemSize;
-        console.log("gridItem.style.height= " + gridItemSize);
 
         grid.appendChild(gridItem);
 
@@ -45,7 +53,6 @@ function makeGrid(numberOfBoxes) {
 
         boxCounter++;
     }
-    resetGrid();
 }
 
 let changeColor = (cell) => {
