@@ -9,13 +9,16 @@
 <body>
     <div class="top">
         <div class="top-left">
-            <button id="reset-button">Reset</button>
+            <button class="top-input" id="reset-button">Reset</button>
         </div>
         <div class="top-right">
-            <input id="col-input" type="number" value="8">
+            <label id="canvas-size" for="col-input" class="top-input">Canvas Size: </label>
+            <input class="top-input" id="col-input" type="number" value="8">
         </div>
     </div>
-    <div id="container"></div>
+    <div id="canvas-case">
+        <div id="container"></div>
+    </div>
 </body>
 <script src="etch-a-sketch.js"></script>
 
