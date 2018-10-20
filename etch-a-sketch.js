@@ -1,4 +1,4 @@
-const GRIDSIZE = 800;
+const GRIDSIZE = 600;
 
 let grid = document.getElementById('container');
 let colInput = document.getElementById('col-input');
